@@ -3,7 +3,6 @@ html {
 }
 
 body{
-    text-align: center;
     margin:0;
     font-weight: light;
     color: #707070;
@@ -11,16 +10,33 @@ body{
     letter-spacing: 0.05em;
  }
 
+ img {
+    max-width: 100%;
+    display: block;
+}
+
  /*=====================
         TYPOGRAPHY 
 ========================*/
+h1, 
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: #143774;
+    margin-top: 0;
+}
 
 h1{ 
-    margin:0;
-    font-family: 'Playfair Display', serif;
+    margin: 0;
     font-size:3.6rem;
-    font-weight:400;
-    color:#143774;
+}
+h2 {
+    font-size:3rem;
+}
+h3{
+    font-size:3rem;
+    color:#1792D2;
 }
 strong {
     font-weight:700;
@@ -32,27 +48,8 @@ strong {
     font-size:2.1rem;
     font-weight:normal;
 }
-h2 {
-    margin-top:0;
-    font-family: 'Playfair Display', serif;
-    font-size:3rem;
-    font-weight:400;
-    color:#143774;
-}
-h3{
-    text-transform: uppercase;
-    color: #143774;
-    font-size:2.5rem;
-    font-weight: bold;
-    margin-top:0;
-}
-h4 {
-    font-family: 'Playfair Display', serif;
-    font-size:2rem;
-    font-weight:400;
-    color:#143774;
-}
 p{
+    margin-top:0;
     line-height: 1.5em;
     font-size: 1.8rem; 
 }
@@ -70,6 +67,7 @@ p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
     font-size:1.4rem;
+    margin:2em 0;
 }
 
  /*=======================
@@ -80,7 +78,6 @@ header{
     background:#f8f8f8;
     padding: 2em 0;
     text-align:center;
-    margin-bottom: 2em;
 }
 
 .nav-list {
@@ -122,12 +119,10 @@ header{
         MAIN LAYOUT 
 ==========================*/
 
-
 .container {
-    margin: 0 auto;
-    margin-bottom: 2em;
+    margin: 3em auto;
     width: 90%;
-    max-width: 900px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
 }
@@ -146,18 +141,34 @@ main {
     object-fit: cover;
     object-position: 0 100%;
 }
+.about-me-img {
+    margin-bottom: 2em;
+    object-position: 0 20%;
+}
+.main-article {
+    display:flex;
+    flex-direction: column;
+}
+.main-article .main-img {
+    order: -2;
+}
+.main-article .photo-txt {
+    order: -1;
+}
 .article-wrapper {
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: start;
 }
 .sub-article {
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2em 0;
+    margin: 2em 0;
     text-align:left;
+}
+.sub-article:last-child {
+    margin-bottom: 0;
 }
 .col-left {
     order: 1;
@@ -201,7 +212,30 @@ main {
 }
 .post {
     border-bottom: 1px solid lightgray;
-    margin: 2em 0;
+    margin-bottom: 2em;
+}
+.post:last-child {
+    border:none;
+}
+.widget-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight:normal;
+    text-transform: uppercase;
+    color: #143774;
+    font-size:2.5rem;
+    font-weight: bold;
+    margin:0 0 1em;
+}
+.recent-title {
+    font-weight:normal;
+    font-size:2rem;
+    font-weight:400;
+    color:#143774;
+    margin:0 0 1em;
+}
+.sidebar-links {
+    text-decoration: none;
+    color:#143774;
 }
 
 /*=======================
@@ -229,6 +263,9 @@ footer p {
 .img-left-aligned {
     object-position: 10% 50%;
 }
+.img-right-aligned {
+    object-position: 80% 50%;
+}
 .img-center-aligned {
     object-position: 50% 50%;
 }
@@ -241,15 +278,6 @@ footer p {
        MEDIA QUERIES 
 ==========================*/
 
-/* @media (min-width: 550px) {
-    .sub-article h2 {
-        margin-top: -1.5em;
-    }
-    
-    .photo-txt {
-        text-align: right;
-    }
-} */
 
 @media (min-width: 700px) {
     .nav-list {
@@ -260,22 +288,12 @@ footer p {
     }
     .col-left {
         order: 1;
-        width:30%;
+        width:25%;
     }
     .col-right{
         order: 2;
         text-align:left;
-        width:65%;
-    }
-    .main-article {
-        display:flex;
-        flex-direction: column;
-    }
-    .main-article img {
-        order: -2;
-    }
-    .main-article .photo-txt {
-        order: -1;
+        width:70%;
     }
 }
 @media (min-width: 850px) {
@@ -289,6 +307,8 @@ footer p {
     
     .sidebar {
         width: 30%;
+        min-width: 200px;
+        margin-left: 0.5em;
     }
 }
 
